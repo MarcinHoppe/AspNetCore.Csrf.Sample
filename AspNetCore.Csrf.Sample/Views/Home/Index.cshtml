@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>ASP.NET Core CSRF Mitigation Sample</h1>
+
+<p>
+    Welcome to a sample application that shows three ways to mitigate CSRF attacks in ASP.NET Core applications:
+    
+    <ul>
+        <li>SameSite cookies</li>
+        <li>Checking the Origin header</li>
+        <li>Leveraging built-in CSRF tokens</li>
+    </ul>
+</p>
+
+<p>
+    This site does not have a lot to offer but you can log in and edit your profile data. Here's the list of allowed logins:
+    <ul>
+        <li>marcin</li>
+        <li>janek</li>
+        <li>franek</li>
+    </ul>
+    The password is s3cr3t. Yes, all of the logins use the same password.
+</p>
+
+<p>
+    Don't forget to visit our <a href="http://evil.local:56326/">evil twin site</a> to execute a CSRF attack!
+</p>

