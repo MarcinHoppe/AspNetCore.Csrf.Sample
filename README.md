@@ -35,6 +35,6 @@ Using these host names is important due to cookies being bound to `web.local`. M
 You may also have to add URL reservations for both sites:
 
 ```
-C:>netsh http add urlacl url=http://web.local:57082/ user=<USER>
-C:>netsh http add urlacl url=http://evil.local:56326/ user=<USER>
+C:\>netsh http add urlacl url=http://web.local:57082/ user=<USER>
+C:\>netsh http add urlacl url=http://evil.local:56326/ user=<USER>
 ```
