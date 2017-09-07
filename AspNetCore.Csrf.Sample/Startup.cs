@@ -18,17 +18,11 @@ namespace AspNetCore.Csrf.Sample
                 .AddCookie("AspNetCore.Csrf.Sample", options => {
                     options.Cookie.Name = "AspNetCore.Csrf.Sample.AuthCookie";
                     options.Cookie.Domain = "web.local";
+                    options.Cookie.SameSite = SameSiteMode.None;
                     options.LoginPath = new PathString("/Account/Login/");
                     options.LogoutPath = new PathString("/Account/Logout/");
                     options.AccessDeniedPath = new PathString("/Account/AccessDenied/");
                 });
-
-            services.AddAntiforgery(options =>
-            {
-                options.Cookie.Domain = "web.local";
-                options.Cookie.Name = "AspNetCore.Csrf.Sample.CsrfCookie";
-                options.FormFieldName = "AspNetCore.Csrf.Sample.CsrfToken";
-            });
             
             services.AddMvc();
         }
@@ -42,9 +36,6 @@ namespace AspNetCore.Csrf.Sample
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
-            app.UseMiddleware<SameSiteCookieMiddleware>();
-            app.UseMiddleware<OriginCheckMiddleware>();
 
             app.UseMvcWithDefaultRoute();
         }

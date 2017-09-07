@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-8">
         <section>
-            <form asp-controller="Profile" asp-action="Update" method="post" class="form-horizontal" role="form">
+            <form asp-controller="Profile" asp-action="Update" method="post" class="form-horizontal" role="form" asp-antiforgery="false">
                 <div class="form-group">
                     <label asp-for="FirstName" class="col-md-2 control-label">First name</label>
                     <div class="col-md-10">

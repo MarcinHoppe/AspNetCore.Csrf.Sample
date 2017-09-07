@@ -22,7 +22,6 @@ namespace AspNetCore.Csrf.Sample.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Update(Profile newProfile)
         {
             var login = User.FindFirst(c => c.Type == "username").Value;
