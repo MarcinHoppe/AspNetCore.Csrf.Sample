@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
 
 namespace AspNetCore.Csrf.Sample.Controllers
 {
@@ -24,14 +25,14 @@ namespace AspNetCore.Csrf.Sample.Controllers
 
             var principal = CreatePrincipal(login);
 
-            await HttpContext.Authentication.SignInAsync("AspNetCore.Csrf.Sample", principal);
+            await HttpContext.SignInAsync("AspNetCore.Csrf.Sample", principal);
 
             return LocalRedirect(returnUrl ?? "/");
         }
 
         public async Task<IActionResult> Logout()
         {
-            await HttpContext.Authentication.SignOutAsync("AspNetCore.Csrf.Sample");
+            await HttpContext.SignOutAsync("AspNetCore.Csrf.Sample");
             return Redirect("/");
         }
 
