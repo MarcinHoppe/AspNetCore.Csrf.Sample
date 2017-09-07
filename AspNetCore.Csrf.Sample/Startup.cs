@@ -18,6 +18,7 @@ namespace AspNetCore.Csrf.Sample
                 .AddCookie("AspNetCore.Csrf.Sample", options => {
                     options.Cookie.Name = "AspNetCore.Csrf.Sample.AuthCookie";
                     options.Cookie.Domain = "web.local";
+                    options.Cookie.SameSite = SameSiteMode.Strict; 
                     options.LoginPath = new PathString("/Account/Login/");
                     options.LogoutPath = new PathString("/Account/Logout/");
                     options.AccessDeniedPath = new PathString("/Account/AccessDenied/");
@@ -43,7 +44,6 @@ namespace AspNetCore.Csrf.Sample
 
             app.UseAuthentication();
 
-            app.UseMiddleware<SameSiteCookieMiddleware>();
             app.UseMiddleware<OriginCheckMiddleware>();
 
             app.UseMvcWithDefaultRoute();
