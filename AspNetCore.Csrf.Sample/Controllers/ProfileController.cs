@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCore.Csrf.Sample.Controllers
 {
-    [Authorize]
+    [Authorize(AuthenticationSchemes = "AspNetCore.Csrf.Sample")]
     public class ProfileController : Controller
     {
         private readonly IProfileRepository profiles;

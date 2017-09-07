@@ -14,14 +14,14 @@ namespace AspNetCore.Csrf.Sample
         {
             services.AddSingleton<IProfileRepository, InMemoryProfileRepository>();
 
-            services.AddAuthentication("AspNetCore.Csrf.Sample")
-                    .AddCookie(options => {
-                        options.Cookie.Name = "AspNetCore.Csrf.Sample.AuthCookie";
-                        options.Cookie.Domain = "web.local";
-                        options.LoginPath = new PathString("/Account/Login/");
-                        options.LogoutPath = new PathString("/Account/Logout/");
-                        options.AccessDeniedPath = new PathString("/Account/AccessDenied/");
-                    });
+            services.AddAuthentication()
+                .AddCookie("AspNetCore.Csrf.Sample", options => {
+                    options.Cookie.Name = "AspNetCore.Csrf.Sample.AuthCookie";
+                    options.Cookie.Domain = "web.local";
+                    options.LoginPath = new PathString("/Account/Login/");
+                    options.LogoutPath = new PathString("/Account/Logout/");
+                    options.AccessDeniedPath = new PathString("/Account/AccessDenied/");
+                });
 
             services.AddAntiforgery(options =>
             {
