@@ -50,7 +50,24 @@ namespace AspNetCore.Csrf.Sample.Model
 
         public void UpdateProfileForUser(string login, Profile newProfile)
         {
-            profiles[login] = newProfile;
+            var profile = profiles[login];
+
+            if (!string.IsNullOrWhiteSpace(newProfile.FirstName))
+            {
+                profile.FirstName = newProfile.FirstName;
+            }
+            if (!string.IsNullOrWhiteSpace(newProfile.LastName))
+            {
+                profile.LastName = newProfile.LastName;
+            }
+            if (!string.IsNullOrWhiteSpace(newProfile.Email))
+            {
+                profile.Email = newProfile.Email;
+            }
+            if (!string.IsNullOrWhiteSpace(newProfile.BankAccount))
+            {
+                profile.BankAccount = newProfile.BankAccount;
+            }
         }
     }
 }
